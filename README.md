@@ -1,68 +1,44 @@
 # 🏫 EduGestión – Plataforma Escolar
 
-Plataforma de gestión institucional para colegios. Administración de alumnos, docentes, notas, asistencia, comunicación y agenda.
-
-## Requisitos
-
-- [Node.js](https://nodejs.org) v18 o superior
-- npm (incluido con Node.js)
-
-## Instalación y uso local
+## Uso local
 
 ```bash
-# 1. Instalar dependencias
 npm install
-
-# 2. Iniciar servidor de desarrollo
 npm run dev
+# → http://localhost:5173
 ```
 
-Luego abrir en el navegador: **http://localhost:5173**
+## Subir a GitHub Pages (paso a paso)
 
-## Build para producción
+### 1. Crear repo en GitHub y subir el código
 
 ```bash
-npm run build
-npm run preview
+git init
+git add .
+git commit -m "feat: plataforma escolar"
+git remote add origin https://github.com/TU_USUARIO/TU_REPO.git
+git branch -M main
+git push -u origin main
 ```
 
-## Estructura del proyecto
+### 2. Activar GitHub Pages con Actions
 
-```
-edu-gestion/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── App.jsx        ← Plataforma completa (componente principal)
-│   └── main.jsx       ← Punto de entrada React
-├── index.html
-├── vite.config.js
-└── package.json
-```
+En tu repo de GitHub:
+- **Settings** → **Pages**
+- En *Build and deployment > Source* → elegir **GitHub Actions**
+- Guardar
 
-## Módulos disponibles (rol Admin)
+### 3. Listo 🚀
 
-| Módulo | Descripción |
-|--------|-------------|
-| Panel General | Métricas, alertas y próximos eventos |
-| Alumnos | Legajos, notas por bimestre, asistencia con calendario |
-| Docentes | Fichas, asignaciones de materias y cursos |
-| Comunicación | Comunicados institucionales + mensajes directos a familias |
-| Agenda | Eventos del ciclo lectivo |
-| Reportes | Estadísticas de rendimiento y asistencia |
-| Configuración | Datos institucionales, materias, roles |
+Cada vez que hagas `git push`, el workflow buildea y despliega automáticamente.
+La URL será: `https://TU_USUARIO.github.io/TU_REPO/`
 
-## Próximas fases
+> **Nota:** El `vite.config.js` detecta automáticamente el nombre del repo
+> a través de la variable `VITE_BASE_PATH` que inyecta el workflow.
+> No necesitás cambiarlo manualmente.
 
-- [ ] Vista Docente (carga de notas y asistencia)
-- [ ] Portal Familia/Alumno (solo lectura)
-- [ ] Autenticación con roles (Supabase / Firebase)
-- [ ] Base de datos real
-- [ ] Notificaciones por email
+## Stack
 
-## Stack técnico
-
-- **React 18** con hooks
-- **Vite 5** como bundler
-- Estilos en **inline styles** (sin CSS externo)
-- **DM Sans** como tipografía (Google Fonts)
+- React 18 + Vite 5
+- Sin dependencias adicionales
+- DM Sans (Google Fonts)

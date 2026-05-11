@@ -1,10 +1,11 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// Nombre exacto de tu repositorio en GitHub
-const REPO_NAME = '/school-management-platform/'
+// En local: base = '/'
+// En GitHub Pages: base = '/nombre-del-repo/' (se inyecta desde el workflow)
+const base = process.env.VITE_BASE_PATH || '/'
 
 export default defineConfig({
   plugins: [react()],
-  base: REPO_NAME,
+  base,
 })
